@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>College Fest 2025</title>
+  <title>VIDYUTH 2026</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
@@ -15,23 +15,30 @@
     </video>
     <div class="overlay"></div>
     <div class="hero-content">
-      <h1>College Fest 2025</h1>
+      <h1>Vidyuth 2026</h1>
       <div id="countdown"></div>
     </div>
   </div>
   
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#events">Events</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#register">Register</a>
-    <a href="#contact">Contact</a>
+    <a href="{{ url_for('home') }}#about">About</a>
+    <a href="{{ url_for('home') }}#events">Events</a>
+    <a href="{{ url_for('home') }}#schedule">Schedule</a>
+    <a href="{{ url_for('home') }}#contact">Contact</a>
+    
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('dashboard') }}" style="color: #00bcd4;">Dashboard ({{ current_user.username }})</a>
+      <a href="{{ url_for('logout') }}" style="color: #ff6b6b;">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}">Login</a>
+      <a href="{{ url_for('signup') }}">Sign Up</a>
+    {% endif %}
   </nav>
 
   <section id="about" data-aos="fade-up">
   <h2>About the Fest</h2>
-  <p>Welcome to College Fest 2025! A celebration of talent, creativity, and community. Join us for exciting events, performances, and workshops.</p>
+  <p>Welcome to College Fest 2026! A celebration of talent, creativity, and community. Join us for exciting events, performances, and workshops.</p>
   <img src="vvce.jpg" alt="About" class="about-img" />
 </section>
 
